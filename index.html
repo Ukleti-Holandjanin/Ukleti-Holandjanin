@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ukleti Holandjanin | Roštilj & Grill</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header (Providan meni bez logoa gore levo) -->
+    <header id="header">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="#meni"><i class="fas fa-hamburger"></i> Meni</a></li>
+                <li><a href="#lokacija"><i class="fas fa-map-marker-alt"></i> Lokacija</a></li>
+                <li><a href="#radno-vreme"><i class="fas fa-clock"></i> Radno Vreme</a></li>
+                <li><a href="#kontakt"><i class="fas fa-phone"></i> Kontakt</a></li>
+                <li><a href="https://www.instagram.com/kod_ukletog_holandjaninaa/" target="_blank" class="ig-link"><i class="fab fa-instagram"></i> Instagram</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Sekcija sa animiranim logoom na sredini -->
+    <section id="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <div class="hero-logo-container">
+                <img src="logo.png" alt="Ukleti Holandjanin Logo" class="hero-logo">
+            </div>
+            <h1>Ukleti Holandjanin</h1>
+            <h2>Roštilj & Grill</h2>
+            <p class="hero-delivery"><a href="tel:0616227517"><i class="fas fa-phone-alt"></i> Dostava: 061 622 7517</a></p>
+            <a href="#meni" class="btn-neon">POGLEDAJ MENI</a>
+        </div>
+    </section>
+
+    <!-- Meni Sekcija -->
+    <section id="meni" class="section-padding">
+        <div class="container">
+            <div class="menu-section-header">
+                <span class="sub-title">ORIGINALNI UKUSI</span>
+                <h2 class="section-title">NAŠ MENI</h2>
+                <div class="title-line"></div>
+            </div>
+            
+            <div class="menu-grid">
+                
+                <!-- Burgeri -->
+                <div class="menu-card glass">
+                    <div class="card-header">
+                        <div class="header-icon-box">
+                            <i class="fas fa-hamburger"></i>
+                        </div>
+                        <h3>Burgeri</h3>
+                    </div>
+                    <ul class="menu-items">
+                        <li>
+                            <div class="item-info"><span class="item-name">Pljeskavica 150g</span></div>
+                            <span class="item-price">250 DIN</span>
+                        </li>
+                        <li>
+                            <div class="item-info"><span class="item-name">Pljeskavica 200g</span></div>
+                            <span class="item-price">330 DIN</span>
+                        </li>
+                        <li>
+                            <div class="item-info"><span class="item-name">Punjena Pljeskavica</span></div>
+                            <span class="item-price">370 DIN</span>
+                        </li>
+                        <li>
+                            <div class="item-info"><span class="item-name">Gurmanska Pljeskavica</span></div>
+                            <span class="item-price">350 DIN</span>
+                        </li>
+                        <li class="special-item">
+                            <div class="item-info">
+                                <span class="item-name highlight">UKLETI BURGER 300g <i class="fas fa-star"></i></span>
+                                <span class="item-desc">Dupla pljeskavica, cheddar, slanina, BBQ sos, kiseli krastavčići, luk</span>
+                            </div>
+                            <span class="item-price">570 DIN</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Piletina -->
+                <div class="menu-card glass">
+                    <div class="card-header">
+                        <div class="header-icon-box">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <h3>Piletina</h3>
+                    </div>
+                    <ul class="menu-items">
+                        <li>
+                            <div class="item-info"><span class="item-name">Pileći file 150g</span></div>
+                            <span class="item-price">300 DIN</span>
+                        </li>
+                        <li>
+                            <div class="item-info"><span class="item-name">Punjeni pileći file 250g</span></div>
+                            <span class="item-price">400 DIN</span>
+                        </li>
+                        <li>
+                            <div class="item-info"><span class="item-name">Pohovani pileći file 200g</span></div>
+                            <span class="item-price">350 DIN</span>
+                        </li>
+                        <li>
+                            <div class="item-info"><span class="item-name">Pileća Karađorđeva 250g</span></div>
+                            <span class="item-price">380 DIN</span>
+                        </li>
+                        <li>
+                            <div class="item-info"><span class="item-name">Pileći Batak 200g</span></div>
+                            <span class="item-price">300 DIN</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Ćevapi i Kobasice -->
+                <div class="menu-card glass">
+                    <div class="card-header">
+                        <div class="header-icon-box">
+                            <i class="fas fa-drumstick-bite"></i>
+                        </div>
+                        <h3>Ćevapi & Kobasice</h3>
+                    </div>
+                    <ul class="menu-items">
+                        <li>
+                            <div class="item-info"><span class="item-name">Pazarski Ćevap (Kom)</span></div>
+                            <span class="item-price">50 DIN</span>
+                        </li>
+                        <li>
+                            <div class="item-info"><span class="item-name">Ćevapi u lepinji 5 kom</span></div>
+                            <span class="item-price">300 DIN</span>
+                        </li>
+                        <li>
+                            <div class="item-info"><span class="item-name">Roštiljska Kobasica 150g</span></div>
+                            <span class="item-price">250 DIN</span>
+                        </li>
+                        <li>
+                            <div class="item-info"><span class="item-name">Roštiljska Kobasica 200g</span></div>
+                            <span class="item-price">300 DIN</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Roštilj na kilogram -->
+                <div class="menu-card glass">
+                    <div class="card-header">
+                        <div class="header-icon-box">
+                            <i class="fas fa-weight-scale"></i>
+                        </div>
+                        <h3>Roštilj na kilogram</h3>
+                    </div>
+                    <ul class="menu-items">
+                        <li>
+                            <div class="item-info"><span class="item-name">Mešano meso</span></div>
+                            <span class="item-price">1500 DIN/kg</span>
+                        </li>
+                        <li>
+                            <div class="item-info"><span class="item-name">Ćevapi</span></div>
+                            <span class="item-price">1600 DIN/kg</span>
+                        </li>
+                        <li>
+                            <div class="item-info"><span class="item-name">Pljeskavice</span></div>
+                            <span class="item-price">1450 DIN/kg</span>
+                        </li>
+                        <li>
+                            <div class="item-info"><span class="item-name">Kobasice</span></div>
+                            <span class="item-price">1550 DIN/kg</span>
+                        </li>
+                        <li>
+                            <div class="item-info"><span class="item-name">Pileći file</span></div>
+                            <span class="item-price">1300 DIN/kg</span>
+                        </li>
+                        <li>
+                            <div class="item-info"><span class="item-name">Punjeni pileći file</span></div>
+                            <span class="item-price">1850 DIN/kg</span>
+                        </li>
+                        <li>
+                            <div class="item-info"><span class="item-name">Pileći batak odkosten</span></div>
+                            <span class="item-price">1400 DIN/kg</span>
+                        </li>
+                        <li>
+                            <div class="item-info"><span class="item-name">Punjena pljeskavica</span></div>
+                            <span class="item-price">1750 DIN/kg</span>
+                        </li>
+                        <li>
+                            <div class="item-info"><span class="item-name">Gurmanska pljeskavica</span></div>
+                            <span class="item-price">1700 DIN/kg</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Prilozi -->
+                <div class="menu-card glass">
+                    <div class="card-header">
+                        <div class="header-icon-box">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>Prilozi</h3>
+                    </div>
+                    <ul class="menu-items">
+                        <li>
+                            <div class="item-info"><span class="item-name">Topli sendvič Šunka</span></div>
+                            <span class="item-price">200 DIN</span>
+                        </li>
+                        <li>
+                            <div class="item-info"><span class="item-name">Topli sendvič Pečenica</span></div>
+                            <span class="item-price">200 DIN</span>
+                        </li>
+                        <li>
+                            <div class="item-info"><span class="item-name">Topli sendvič Kulen</span></div>
+                            <span class="item-price">250 DIN</span>
+                        </li>
+                        <li>
+                            <div class="item-info"><span class="item-name">Pomfrit manji 150g</span></div>
+                            <span class="item-price">170 DIN</span>
+                        </li>
+                        <li>
+                            <div class="item-info"><span class="item-name">Pomfrit veći 300g</span></div>
+                            <span class="item-price">250 DIN</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Palačinke & Sladoled -->
+                <div class="menu-card glass">
+                    <div class="card-header">
+                        <div class="header-icon-box">
+                            <i class="fas fa-cookie-bite"></i>
+                        </div>
+                        <h3>Palačinke & Sladoled</h3>
+                    </div>
+                    <ul class="menu-items">
+                        <li>
+                            <div class="item-info"><span class="item-name">Palačinka Nutela</span></div>
+                            <span class="item-price">200 DIN</span>
+                        </li>
+                        <li>
+                            <div class="item-info"><span class="item-name">Palačinka Nutela Plazma</span></div>
+                            <span class="item-price">250 DIN</span>
+                        </li>
+                        <li>
+                            <div class="item-info"><span class="item-name">Palačinka Nutela Plazma Banana</span></div>
+                            <span class="item-price">300 DIN</span>
+                        </li>
+                    </ul>
+
+                    <!-- Podvučena crta na pola -->
+                    <div class="menu-divider"></div>
+
+                    <ul class="menu-items ice-cream-section">
+                        <li>
+                            <div class="item-info">
+                                <span class="item-name"><i class="fas fa-ice-cream text-red"></i> Sladoled na kuglu</span>
+                                <span class="item-desc-title">Ukusi po izboru:</span>
+                                <span class="item-sub-desc">• Čokolada</span>
+                                <span class="item-sub-desc">• Vanila</span>
+                                <span class="item-sub-desc">• Šumsko voće</span>
+                                <span class="item-sub-desc">• Stracatela</span>
+                            </div>
+                            <span class="item-price">100 DIN <small>/ kugla</small></span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Lokacija Sekcija -->
+    <section id="lokacija" class="section-padding dark-bg">
+        <div class="container text-center">
+            <h2 class="section-title"><i class="fas fa-map-marker-alt text-red"></i> Lokacija</h2>
+            <h3 class="location-name">Grošnička Stanica</h3>
+            <p class="location-desc">Posetite nas i uverite se u ukus koji se pamti!</p>
+            <a href="https://maps.app.goo.gl/Zd5GcN4oTRYiNH6t5" target="_blank" class="btn-neon">OTVORI MAPU</a>
+        </div>
+    </section>
+
+    <!-- Radno Vreme Sekcija -->
+    <section id="radno-vreme" class="section-padding">
+        <div class="container text-center">
+            <h2 class="section-title"><i class="fas fa-clock text-red"></i> Radno Vreme</h2>
+            <div class="hours-card glass">
+                <ul class="hours-list">
+                    <li><span>Ponedeljak:</span> <span class="closed">NE RADI</span></li>
+                    <li><span>Utorak – Petak:</span> <span>10:00 – 00:00</span></li>
+                    <li><span>Subota – Nedelja:</span> <span>10:00 – 02:00</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Sekcija -->
+    <section id="instagram" class="section-padding dark-bg">
+        <div class="container text-center">
+            <a href="https://www.instagram.com/kod_ukletog_holandjaninaa/" target="_blank" class="ig-banner glass">
+                <i class="fab fa-instagram big-ig-icon"></i>
+                <h2>@kod_ukletog_holandjaninaa</h2>
+                <p>Zaprati nas za sveže novosti i sočne slike!</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Kontakt Sekcija -->
+    <section id="kontakt" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Kontakt & Dostava</h2>
+            <div class="contact-grid">
+                <div class="contact-card glass">
+                    <i class="fas fa-phone text-red"></i>
+                    <h3>Telefon za dostavu</h3>
+                    <p><a href="tel:0616227517" class="phone-link">061 622 7517</a></p>
+                </div>
+                <div class="contact-card glass">
+                    <i class="fas fa-map-marker-alt text-red"></i>
+                    <h3>Adresa</h3>
+                    <p>Grošnička Stanica</p>
+                    <p class="contact-sub-text">Краљевачког батаљона 81, Крагујевац 34000</p>
+                </div>
+                <div class="contact-card glass">
+                    <i class="fas fa-clock text-red"></i>
+                    <h3>Radno Vreme</h3>
+                    <p><span class="closed">Ponedeljak: Ne radi</span><br>Utorak – Petak: 10:00 - 00:00<br>Subota – Nedelja: 10:00 - 02:00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <img src="logo.png" alt="Ukleti Holandjanin Logo" class="footer-logo">
+            <div class="social-icons">
+                <a href="https://www.instagram.com/kod_ukletog_holandjaninaa/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            <p>&copy; 2026 Ukleti Holandjanin. Sva prava zadržana.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
