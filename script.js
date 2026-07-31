@@ -1,59 +1,67 @@
 document.addEventListener("DOMContentLoaded", () => {
     
-    // Sticky Header prilikom skrolovanja
-    const header = document.getElementById("header");
+    // 1. Loading Screen
+    const loader = document.getElementById("loader");
+    setTimeout(() => {
+        loader.style.opacity = "0";
+        setTimeout(() => loader.style.display = "none", 600);
+    }, 1500);
+
+    // 2. Custom Cursor (Samo za Desktop)
+    const cursor = document.querySelector(".cursor");
+    const follower = document.querySelector(".cursor-follower");
     
+    if(window.innerWidth > 768) {
+        document.addEventListener("mousemove", (e) => {
+            cursor.style.left = e.clientX + "px";
+            cursor.style.top = e.clientY + "px";
+            setTimeout(() => {
+                follower.style.left = e.clientX + "px";
+                follower.style.top = e.clientY + "px";
+            }, 80);
+        });
+    }
+
+    // 3. Scroll Progress Bar, Sticky Header & Scroll To Top
+    const header = document.getElementById("header");
+    const progressBar = document.getElementById("progressBar");
+    const scrollToTopBtn = document.getElementById("scrollToTop");
+
     window.addEventListener("scroll", () => {
+        let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let scrolled = (winScroll / height) * 100;
+        progressBar.style.width = scrolled + "%";
+
         if (window.scrollY > 50) {
             header.classList.add("sticky");
         } else {
             header.classList.remove("sticky");
         }
-    });
 
-    // Mobilni Meni (Hamburger toggle)
-    const hamburger = document.querySelector(".hamburger");
-    const navLinks = document.querySelector(".nav-links");
-    const navItems = document.querySelectorAll(".nav-links li a");
-
-    hamburger.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-        
-        // Promena ikonice hamburger/x
-        const icon = hamburger.querySelector("i");
-        if(navLinks.classList.contains("active")) {
-            icon.classList.remove("fa-bars");
-            icon.classList.add("fa-times");
+        if (window.scrollY > 500) {
+            scrollToTopBtn.classList.add("visible");
         } else {
-            icon.classList.remove("fa-times");
-            icon.classList.add("fa-bars");
+            scrollToTopBtn.classList.remove("visible");
         }
     });
 
-    // Zatvaranje menija na klik na link
-    navItems.forEach(item => {
-        item.addEventListener("click", () => {
-            navLinks.classList.remove("active");
-            hamburger.querySelector("i").classList.remove("fa-times");
-            hamburger.querySelector("i").classList.add("fa-bars");
-        });
+    scrollToTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
-    // Scroll Animacije (Intersection Observer)
+    // 4. Reveal Animations on Scroll
     const reveals = document.querySelectorAll(".reveal");
-
     const revealOptions = {
-        threshold: 0.15,
+        threshold: 0.1,
         rootMargin: "0px 0px -50px 0px"
     };
 
     const revealOnScroll = new IntersectionObserver(function(entries, observer) {
         entries.forEach(entry => {
-            if (!entry.isIntersecting) {
-                return;
-            } else {
+            if (entry.isIntersecting) {
                 entry.target.classList.add("active");
-                observer.unobserve(entry.target); // Animira samo jednom
+                observer.unobserve(entry.target); 
             }
         });
     }, revealOptions);
@@ -62,4 +70,26 @@ document.addEventListener("DOMContentLoaded", () => {
         revealOnScroll.observe(reveal);
     });
 
+    // 5. Floating Particles u Hero Sekciji
+    const particlesContainer = document.getElementById('particles-js');
+    const particleCount = window.innerWidth > 768 ? 40 : 15;
+
+    for(let i = 0; i < particleCount; i++) {
+        let particle = document.createElement('div');
+        particle.style.position = 'absolute';
+        particle.style.width = Math.random() * 4 + 1 + 'px';
+        particle.style.height = particle.style.width;
+        particle.style.background = 'var(--primary-red)';
+        particle.style.borderRadius = '50%';
+        particle.style.bottom = '-10px';
+        particle.style.left = Math.random() * 100 + 'vw';
+        particle.style.opacity = Math.random();
+        particle.style.boxShadow = '0 0 10px var(--primary-red)';
+        
+        let duration = Math.random() * 10 + 5; 
+        let delay = Math.random() * 5;
+        
+        particle.style.animation = `float ${duration}s linear ${delay}s infinite`;
+        particlesContainer.appendChild(particle);
+    }
 });
