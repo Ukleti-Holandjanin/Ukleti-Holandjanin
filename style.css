@@ -26,7 +26,7 @@ body {
     color: var(--text-light);
     font-family: var(--font-body);
     overflow-x: hidden;
-    cursor: none; /* Skriva default kursor za custom efekat */
+    cursor: none; 
 }
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
@@ -74,7 +74,7 @@ body:hover .cursor-follower { background: rgba(255,0,0,0.05); }
     animation: spin 1s linear infinite; box-shadow: 0 0 20px var(--primary-red-glow);
 }
 
-/* --- HEADER GLASSMORPHISM (Sada responzivan bez hamburgera) --- */
+/* --- HEADER GLASSMORPHISM --- */
 header {
     position: fixed; top: 0; width: 100%; z-index: 1000; padding: 20px 0;
     transition: var(--smooth-trans); background: transparent;
@@ -98,14 +98,13 @@ header.sticky {
 }
 .nav-links li a:hover { color: var(--primary-red); text-shadow: 0 0 15px var(--primary-red); transform: translateY(-2px); }
 
-/* --- HERO SECTION (Nova pozadina i Clean logo animacija) --- */
+/* --- HERO SECTION --- */
 #hero {
     height: 100vh; position: relative; display: flex; align-items: center; justify-content: center;
     text-align: center; overflow: hidden;
 }
 .hero-bg-zoom {
     position: absolute; inset: 0;
-    /* NOVA SLIKA: Roštilj, vatra, meso, pljeskavice - mračnija i impresivnija */
     background: url('https://images.unsplash.com/photo-1590846406792-0adc7f928f1e?q=80&w=1920&auto=format&fit=crop') center/cover;
     animation: slowZoom 20s infinite alternate; z-index: 1;
 }
@@ -125,21 +124,11 @@ header.sticky {
 }
 
 .hero-logo-bg-img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 2500px; 
-    opacity: 0.4; 
-    z-index: 0; 
-    pointer-events: none; 
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 2500px; opacity: 0.4; z-index: 0; pointer-events: none; 
 }
-
-/* Nova "Clean" atmosferična animacija za logo */
 .hero-logo { 
-    position: relative;
-    z-index: 1;
-    max-width: 240px; 
+    position: relative; z-index: 1; max-width: 240px; 
     animation: atmosphericPulse 4s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
 }
 
@@ -177,15 +166,40 @@ h1.glitch-text {
 .dark-bg { background-color: var(--bg-black); }
 .premium-bg { background: linear-gradient(to bottom, var(--bg-black), #0d0000); }
 
-.menu-section-header { text-align: center; margin-bottom: 80px; }
+.menu-section-header { text-align: center; margin-bottom: 50px; }
 .sub-title { font-family: var(--font-heading); font-size: 1.5rem; color: var(--primary-red); letter-spacing: 5px; display: block; }
 .section-title { font-size: 4rem; text-transform: uppercase; margin-top: 10px; text-shadow: 0 0 15px rgba(255,0,0,0.3); }
 .title-line { width: 100px; height: 4px; background: var(--primary-red); margin: 20px auto 0; border-radius: 2px; box-shadow: 0 0 15px var(--primary-red); }
 
+/* --- QUICK NAV (Brzi linkovi u meniju) --- */
+.quick-nav-wrapper {
+    position: sticky; top: 80px; z-index: 100;
+    background: linear-gradient(to bottom, rgba(5,5,5,1) 40%, rgba(5,5,5,0));
+    padding: 10px 0 30px; margin-bottom: 20px;
+}
+.quick-nav {
+    display: flex; gap: 15px; overflow-x: auto; padding: 5px 10px 15px;
+    scroll-behavior: smooth; justify-content: center;
+}
+.quick-nav::-webkit-scrollbar { height: 5px; }
+.quick-nav::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 10px; }
+.quick-nav::-webkit-scrollbar-thumb { background: var(--primary-red); border-radius: 10px; }
+
+.quick-btn {
+    background: var(--glass-bg); border: 1px solid var(--glass-border);
+    color: var(--text-light); padding: 10px 22px; border-radius: 30px;
+    white-space: nowrap; font-family: var(--font-heading); font-size: 1.2rem;
+    display: flex; align-items: center; gap: 8px; transition: var(--smooth-trans);
+    backdrop-filter: blur(10px); letter-spacing: 1px;
+}
+.quick-btn:hover, .quick-btn:active {
+    background: var(--primary-red); box-shadow: 0 0 15px var(--primary-red); transform: translateY(-3px);
+}
+
 /* --- MENU CATEGORY HEADERS --- */
 .category-header {
     text-align: center; margin-bottom: 40px; background: linear-gradient(90deg, transparent, rgba(255,0,0,0.05), transparent);
-    padding: 30px 0; border-radius: 20px;
+    padding: 30px 0; border-radius: 20px; scroll-margin-top: 150px; /* Bitno da skrol ne pokrije naslov */
 }
 .cat-icon {
     width: 70px; height: 70px; margin: 0 auto 15px; background: rgba(255,0,0,0.1);
@@ -196,23 +210,14 @@ h1.glitch-text {
 .category-header p { color: var(--text-gray); font-size: 1.1rem; }
 
 /* --- PRODUCT CARDS (Premium Glassmorphism) --- */
-.product-grid {
-    display: grid; 
-    grid-template-columns: repeat(3, 1fr); /* OVO JE JEDINA IZMENJENA LINIJA (Uvek 3 kolone) */
-    gap: 35px;
-}
+.product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 35px; }
 .glass {
     background: var(--glass-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--glass-border); border-radius: 24px; box-shadow: var(--glass-shadow);
 }
-.product-card {
-    display: flex; flex-direction: column; overflow: hidden; transition: var(--smooth-trans);
-    position: relative;
-}
+.product-card { display: flex; flex-direction: column; overflow: hidden; transition: var(--smooth-trans); position: relative; }
 .product-card:hover {
-    transform: translateY(-12px) scale(1.02);
-    border-color: rgba(255,0,0,0.5);
-    box-shadow: 0 20px 40px rgba(255,0,0,0.25);
+    transform: translateY(-12px) scale(1.02); border-color: rgba(255,0,0,0.5); box-shadow: 0 20px 40px rgba(255,0,0,0.25);
 }
 .card-img-wrapper { height: 220px; overflow: hidden; position: relative; }
 .card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
@@ -247,9 +252,7 @@ h1.glitch-text {
 }
 
 .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-.contact-card {
-    text-align: center; padding: 50px 30px; display: block; transition: var(--smooth-trans);
-}
+.contact-card { text-align: center; padding: 50px 30px; display: block; transition: var(--smooth-trans); }
 .contact-card:hover { transform: translateY(-10px); background: rgba(25,10,10,0.8); }
 .icon-wrapper {
     font-size: 3rem; color: var(--primary-red); margin-bottom: 20px;
@@ -260,9 +263,7 @@ h1.glitch-text {
 .contact-card p { font-size: 1.2rem; }
 
 /* --- FOOTER --- */
-footer {
-    text-align: center; padding: 60px 20px 30px; background: #030303; border-top: 1px solid var(--glass-border);
-}
+footer { text-align: center; padding: 60px 20px 30px; background: #030303; border-top: 1px solid var(--glass-border); }
 .footer-logo { max-width: 120px; margin-bottom: 25px; filter: drop-shadow(0 0 10px rgba(255,0,0,0.5)); }
 .social-icons a {
     display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px;
@@ -282,11 +283,10 @@ footer {
     100% { transform: scale(1.08); filter: drop-shadow(0 0 40px rgba(255,0,0,1)); }
 }
 
-/* Reveal on Scroll */
 .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
-/* --- RESPONSIVE (Bez Hamburgera) --- */
+/* --- RESPONSIVE --- */
 @media (max-width: 992px) {
     .section-title { font-size: 3rem; }
     h1.glitch-text { font-size: 4rem; }
@@ -296,29 +296,30 @@ footer {
     body { cursor: auto; }
     .cursor, .cursor-follower { display: none; }
     
-    /* Navigacija na telefonu (bez 3 crte) */
-    .nav-links {
-        gap: 12px;
-        padding: 10px 15px;
-        border-radius: 20px;
-        width: 100%; /* Na telefonu zauzima punu širinu sa marginama */
-        position: static;
-        flex-direction: row;
-    }
-    .nav-links li a {
-        font-size: 1rem; /* Smanjen font da bi sve lepo stalo u linije */
-        gap: 5px;
-    }
-    .nav-links li a i {
-        font-size: 0.9rem;
-    }
+    .nav-links { gap: 12px; padding: 10px 15px; border-radius: 20px; width: 100%; flex-direction: row; }
+    .nav-links li a { font-size: 1rem; gap: 5px; }
+    .nav-links li a i { font-size: 0.9rem; }
     
-    /* Hero tekst smanjivanje za mobilne */
     .hero-content h1 { font-size: 3rem; }
     #hero h2 { font-size: 1.5rem; }
-    .section-padding { padding: 80px 15px; }
+    .section-padding { padding: 80px 10px; } /* Manji padding za telefon */
     .category-header h3 { font-size: 2.2rem; }
     
-    /* Stilovi za liste iz starog koda */
     .hours-list li { font-size: 1.1rem; flex-direction: column; gap: 5px; text-align: center; }
+
+    /* Meni za telefone (2 u redu, "klin" izgled) */
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    .card-img-wrapper { height: 120px; } /* Smanjene slike da stanu bolje */
+    .card-info { padding: 12px; }
+    .card-info h4 { font-size: 1.1rem; margin-bottom: 5px; }
+    .card-info .price { font-size: 1.1rem; padding: 4px 10px; }
+    .card-info .desc { font-size: 0.8rem; margin-bottom: 10px; line-height: 1.2; }
+    .special-badge { font-size: 0.7rem; padding: 3px 8px; }
+
+    /* Brza navigacija na telefonu izbacena u levo da prsti lakse dohvate */
+    .quick-nav { justify-content: flex-start; }
+    .quick-nav-wrapper { top: 60px; }
 }
