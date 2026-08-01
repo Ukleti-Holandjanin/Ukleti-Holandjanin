@@ -341,8 +341,23 @@ footer { text-align: center; padding: 60px 20px 30px; background: #030303; borde
     body { cursor: auto; }
     .cursor, .cursor-follower { display: none; }
     
-    .nav-links { gap: 12px; padding: 10px 15px; border-radius: 20px; width: 100%; flex-direction: row; }
-    .nav-links li a { font-size: 1rem; gap: 5px; }
+    .nav-links { 
+        gap: 15px; 
+        padding: 10px 15px; 
+        border-radius: 20px; 
+        width: 100%; 
+        flex-direction: row; 
+        flex-wrap: nowrap; /* Postavlja sve na jednu ravnu liniju */
+        overflow-x: auto; /* Omogućava horizontalno skrolovanje kao donji meni */
+        justify-content: flex-start; 
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; 
+    }
+    .nav-links::-webkit-scrollbar {
+        display: none; /* Sakriva scrollbar zarad lepšeg izgleda */
+    }
+
+    .nav-links li a { font-size: 1rem; gap: 5px; white-space: nowrap; } /* Instagram više ne viri u novom redu */
     .nav-links li a i { font-size: 0.9rem; }
     
     .hero-content h1 { font-size: 3rem; }
@@ -354,7 +369,7 @@ footer { text-align: center; padding: 60px 20px 30px; background: #030303; borde
 
     /* Fiksirana traka dugmića na telefonu */
     .quick-nav-wrapper {
-        top: 55px;
+        top: 70px; /* Spušteno da se napravi jasan razmak od zaglavlja, nema više ulaska u gornji meni */
         padding: 10px 0;
         margin-bottom: 15px;
     }
