@@ -70,7 +70,40 @@ document.addEventListener("DOMContentLoaded", () => {
         revealOnScroll.observe(reveal);
     });
 
-    // 5. Floating Particles u Hero Sekciji
+    // 5. Interaktivna Dinamička Meni Navigacija (Tab / Accordion Sistem)
+    const quickBtns = document.querySelectorAll('.quick-btn');
+    const categoryItems = document.querySelectorAll('.menu-category-item');
+    const meniSection = document.getElementById('meni');
+
+    quickBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetCategory = btn.getAttribute('data-category');
+
+            // Ukloni active klasu sa svih dugmadi i kategorija
+            quickBtns.forEach(b => b.classList.remove('active'));
+            categoryItems.forEach(item => item.classList.remove('active'));
+
+            // Aktivirej kliknuto dugme i odgovarajuću kategoriju
+            btn.classList.add('active');
+            const activeCategoryItem = document.getElementById(targetCategory);
+            if(activeCategoryItem) {
+                activeCategoryItem.classList.add('active');
+            }
+
+            // Pozicioniraj ekran na početak Meni sekcije da ne skroluje daleko
+            const headerOffset = 120;
+            const elementPosition = meniSection.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // 6. Floating Particles u Hero Sekciji
     const particlesContainer = document.getElementById('particles-js');
     const particleCount = window.innerWidth > 768 ? 40 : 15;
 

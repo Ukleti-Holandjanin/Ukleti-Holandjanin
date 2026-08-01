@@ -166,75 +166,119 @@ h1.glitch-text {
 .dark-bg { background-color: var(--bg-black); }
 .premium-bg { background: linear-gradient(to bottom, var(--bg-black), #0d0000); }
 
-.menu-section-header { text-align: center; margin-bottom: 50px; }
+.menu-section-header { text-align: center; margin-bottom: 30px; }
 .sub-title { font-family: var(--font-heading); font-size: 1.5rem; color: var(--primary-red); letter-spacing: 5px; display: block; }
 .section-title { font-size: 4rem; text-transform: uppercase; margin-top: 10px; text-shadow: 0 0 15px rgba(255,0,0,0.3); }
 .title-line { width: 100px; height: 4px; background: var(--primary-red); margin: 20px auto 0; border-radius: 2px; box-shadow: 0 0 15px var(--primary-red); }
 
-/* --- QUICK NAV (Brzi linkovi u meniju) --- */
+/* --- QUICK NAV (Fiksirana Brza Navigacija u Meniju) --- */
 .quick-nav-wrapper {
-    position: sticky; top: 80px; z-index: 100;
-    background: linear-gradient(to bottom, rgba(5,5,5,1) 40%, rgba(5,5,5,0));
-    padding: 10px 0 30px; margin-bottom: 20px;
+    position: sticky;
+    top: 65px;
+    z-index: 900;
+    background: rgba(5, 5, 5, 0.95);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 15px 0;
+    margin-bottom: 30px;
+    border-top: 1px solid rgba(255, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
 }
 .quick-nav {
-    display: flex; gap: 15px; overflow-x: auto; padding: 5px 10px 15px;
-    scroll-behavior: smooth; justify-content: center;
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 5px 10px;
+    scroll-behavior: smooth;
+    justify-content: center;
+    -webkit-overflow-scrolling: touch;
 }
-.quick-nav::-webkit-scrollbar { height: 5px; }
-.quick-nav::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 10px; }
+.quick-nav::-webkit-scrollbar { height: 4px; }
+.quick-nav::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
 .quick-nav::-webkit-scrollbar-thumb { background: var(--primary-red); border-radius: 10px; }
 
 .quick-btn {
-    background: var(--glass-bg); border: 1px solid var(--glass-border);
-    color: var(--text-light); padding: 10px 22px; border-radius: 30px;
-    white-space: nowrap; font-family: var(--font-heading); font-size: 1.2rem;
-    display: flex; align-items: center; gap: 8px; transition: var(--smooth-trans);
-    backdrop-filter: blur(10px); letter-spacing: 1px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-light);
+    padding: 10px 22px;
+    border-radius: 30px;
+    white-space: nowrap;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--smooth-trans);
+    backdrop-filter: blur(10px);
+    letter-spacing: 1px;
+    cursor: pointer;
 }
-.quick-btn:hover, .quick-btn:active {
-    background: var(--primary-red); box-shadow: 0 0 15px var(--primary-red); transform: translateY(-3px);
+.quick-btn:hover, .quick-btn.active {
+    background: var(--primary-red);
+    border-color: var(--primary-red);
+    box-shadow: 0 0 15px var(--primary-red);
+    color: #fff;
+}
+
+/* --- DINAMIČKI MENI (TABOVI) --- */
+.menu-content-wrapper {
+    position: relative;
+    min-height: 400px;
+}
+.menu-category-item {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+.menu-category-item.active {
+    display: block;
+    opacity: 1;
 }
 
 /* --- MENU CATEGORY HEADERS --- */
 .category-header {
-    text-align: center; margin-bottom: 40px; background: linear-gradient(90deg, transparent, rgba(255,0,0,0.05), transparent);
-    padding: 30px 0; border-radius: 20px; scroll-margin-top: 150px; /* Bitno da skrol ne pokrije naslov */
+    text-align: center;
+    margin-bottom: 30px;
+    background: linear-gradient(90deg, transparent, rgba(255,0,0,0.05), transparent);
+    padding: 20px 0;
+    border-radius: 20px;
 }
 .cat-icon {
-    width: 70px; height: 70px; margin: 0 auto 15px; background: rgba(255,0,0,0.1);
+    width: 60px; height: 60px; margin: 0 auto 10px; background: rgba(255,0,0,0.1);
     border: 1px solid var(--primary-red-glow); border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    font-size: 2rem; color: var(--primary-red); box-shadow: 0 0 20px rgba(255,0,0,0.2);
+    font-size: 1.8rem; color: var(--primary-red); box-shadow: 0 0 20px rgba(255,0,0,0.2);
 }
-.category-header h3 { font-size: 2.8rem; margin-bottom: 5px; }
-.category-header p { color: var(--text-gray); font-size: 1.1rem; }
+.category-header h3 { font-size: 2.5rem; margin-bottom: 5px; }
+.category-header p { color: var(--text-gray); font-size: 1rem; }
 
 /* --- PRODUCT CARDS (Premium Glassmorphism) --- */
-.product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 35px; }
+.product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
 .glass {
     background: var(--glass-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--glass-border); border-radius: 24px; box-shadow: var(--glass-shadow);
 }
 .product-card { display: flex; flex-direction: column; overflow: hidden; transition: var(--smooth-trans); position: relative; }
 .product-card:hover {
-    transform: translateY(-12px) scale(1.02); border-color: rgba(255,0,0,0.5); box-shadow: 0 20px 40px rgba(255,0,0,0.25);
+    transform: translateY(-8px) scale(1.01); border-color: rgba(255,0,0,0.5); box-shadow: 0 20px 40px rgba(255,0,0,0.25);
 }
 .card-img-wrapper { height: 220px; overflow: hidden; position: relative; }
 .card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-.product-card:hover .card-img-wrapper img { transform: scale(1.15); }
-.card-info { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
-.card-info h4 { font-size: 1.6rem; letter-spacing: 1px; margin-bottom: 8px; }
+.product-card:hover .card-img-wrapper img { transform: scale(1.1); }
+.card-info { padding: 22px; display: flex; flex-direction: column; flex-grow: 1; }
+.card-info h4 { font-size: 1.5rem; letter-spacing: 1px; margin-bottom: 8px; }
 .card-info .desc { font-size: 0.9rem; color: var(--text-gray); margin-bottom: 15px; line-height: 1.4; }
 .card-info .price {
-    margin-top: auto; font-family: var(--font-heading); font-size: 1.8rem;
+    margin-top: auto; font-family: var(--font-heading); font-size: 1.7rem;
     color: var(--primary-red); text-shadow: 0 0 10px var(--primary-red-glow);
     background: rgba(255,0,0,0.08); padding: 5px 15px; border-radius: 8px;
     align-self: flex-start; border: 1px solid rgba(255,0,0,0.2);
 }
 .premium-glow { box-shadow: 0 0 25px rgba(255,0,0,0.2); border-color: rgba(255,0,0,0.4); }
 .special-badge {
-    position: absolute; top: 15px; right: 15px; background: var(--primary-red);
-    color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;
+    position: absolute; top: 12px; right: 12px; background: var(--primary-red);
+    color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;
     box-shadow: 0 0 15px rgba(255,0,0,0.5); z-index: 2;
 }
 
@@ -286,10 +330,11 @@ footer { text-align: center; padding: 60px 20px 30px; background: #030303; borde
 .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
-/* --- RESPONSIVE --- */
+/* --- RESPONSIVE OPTIMIZACIJA ZA MOBILNI --- */
 @media (max-width: 992px) {
     .section-title { font-size: 3rem; }
     h1.glitch-text { font-size: 4rem; }
+    .product-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
 }
 
 @media (max-width: 768px) {
@@ -302,24 +347,36 @@ footer { text-align: center; padding: 60px 20px 30px; background: #030303; borde
     
     .hero-content h1 { font-size: 3rem; }
     #hero h2 { font-size: 1.5rem; }
-    .section-padding { padding: 80px 10px; } /* Manji padding za telefon */
-    .category-header h3 { font-size: 2.2rem; }
+    .section-padding { padding: 60px 10px; }
+    .category-header h3 { font-size: 2rem; }
     
     .hours-list li { font-size: 1.1rem; flex-direction: column; gap: 5px; text-align: center; }
 
-    /* Meni za telefone (2 u redu, "klin" izgled) */
+    /* Fiksirana traka dugmića na telefonu */
+    .quick-nav-wrapper {
+        top: 55px;
+        padding: 10px 0;
+        margin-bottom: 15px;
+    }
+    .quick-nav {
+        justify-content: flex-start;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .quick-btn {
+        padding: 8px 16px;
+        font-size: 1rem;
+    }
+
+    /* Meni kartice za telefone (2 u redu) */
     .product-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+        gap: 10px;
     }
-    .card-img-wrapper { height: 120px; } /* Smanjene slike da stanu bolje */
-    .card-info { padding: 12px; }
-    .card-info h4 { font-size: 1.1rem; margin-bottom: 5px; }
-    .card-info .price { font-size: 1.1rem; padding: 4px 10px; }
-    .card-info .desc { font-size: 0.8rem; margin-bottom: 10px; line-height: 1.2; }
-    .special-badge { font-size: 0.7rem; padding: 3px 8px; }
-
-    /* Brza navigacija na telefonu izbacena u levo da prsti lakse dohvate */
-    .quick-nav { justify-content: flex-start; }
-    .quick-nav-wrapper { top: 60px; }
+    .card-img-wrapper { height: 130px; }
+    .card-info { padding: 10px; }
+    .card-info h4 { font-size: 1rem; margin-bottom: 4px; }
+    .card-info .price { font-size: 1.1rem; padding: 3px 8px; }
+    .card-info .desc { font-size: 0.75rem; margin-bottom: 8px; line-height: 1.2; }
+    .special-badge { font-size: 0.65rem; padding: 2px 6px; top: 6px; right: 6px; }
 }
